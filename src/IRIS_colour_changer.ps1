@@ -1,7 +1,7 @@
 function Restore-OriginalFile($cspBrokerPath) {
     # Ask user to provide path to csp\broker folder location so we can locate ZEN_Component__core.js
     $csp_broker_path = $cspBrokerPath
-	Write-Host $csp_broker_path	
+    Write-Host $csp_broker_path	
 
     # Check if the provided path does not exist
     if (!(Test-Path -Path $csp_broker_path)) {
@@ -52,8 +52,8 @@ function Restore-OriginalFile($cspBrokerPath) {
     }
     catch {
         Write-Host "Failed to remove ZEN_Component__core_backup.js: $_"
-		pause "Press any key to exit the script."
-		exit 1		
+        pause "Press any key to exit the script."
+        exit 1		
     }
 
 }
@@ -168,6 +168,13 @@ function Get-Colour {
     3 - Yellow
     4 - Green
     5 - Blue
+    6 - Pastel Red
+    7 - Pastel Orange
+    8 - Pastel Yellow
+    9 - Pastel Green
+    10 - Pastel Blue
+    11 - Puse
+    12 - Custom HEX Colour
     Please choose"
     Switch ($type) {
         1 { $choice = "Red" }
@@ -175,6 +182,22 @@ function Get-Colour {
         3 { $choice = "Yellow" }
         4 { $choice = "Green" }
         5 { $choice = "Blue" }
+        6 { $choice = "LightCoral" }
+        7 { $choice = "LightSalmon" }
+        8 { $choice = "LightYellow" }
+        9 { $choice = "LightGreen" }
+        10 { $choice = "LightBlue" }
+        11 { $choice = "#E491A6" }
+        12 {
+            $choice = Read-Host "Please enter a custom HEX colour (e.g., #41B6E6): "
+            # Validate the HEX colour format
+            if ($choice -notmatch '^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$') {
+                Write-Host "Invalid HEX colour format. Next Time, please use the format #RRGGBB or #RGB."
+                pause "Press any key to exit the script."
+                exit 1
+            }
+        }
+        default { $choice = "White" }
     }
     return $choice
 }
@@ -187,6 +210,7 @@ function Set-Action {
     Switch ($type) {
         1 { $choice = "Change Header Colour" }
         2 { $choice = "Restore Original File" }
+        default { $choice = "ERR" }
     }
     return $choice
 }
