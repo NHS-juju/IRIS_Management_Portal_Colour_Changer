@@ -111,7 +111,7 @@ Function Set-HeaderColour($cspBrokerPath) {
     $new_script_path = Join-Path -Path $csp_broker_path -ChildPath "zCustom_env_colours.js"
 
     # add the new script content to the new script file
-    $new_script_content = "// This script will change the header of the instance of IRIS installed on this machine" + "`n" + "document.getElementsByClassName(""portalTitle"")[0].style.background = "" " + $Colour + " "";"
+    $new_script_content = "// This script will change the header of the instance of IRIS installed on this machine" + "`n" + "document.getElementsByClassName(""portalTitle"")[0].style.background = "" " + $Colour + " "";" + "`n" + "document.getElementsByClassName(""portalTitleServerFlagLive"")[0].style.background = ""#FFFFFF"";"+ "`n" + "document.getElementsByClassName(""portalTitleServerFlag"")[0].style.background = ""#FFFFFF"";"
 
     try {
         Set-Content -Path $new_script_path -Value $new_script_content -Force
