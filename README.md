@@ -4,7 +4,7 @@ Unofficial Powershell script to alter the header colour of Intersystems IRIS Ins
 ## What it does
 
 The script will:
-- prompt the user for the path to `CSP\broker` for the environment
+- prompt the user for the path to `CSP/broker` for the environment
 - prompt the user to either
   - Set the Management Portal Header colour to one of a number of options
     - If attempting to set the colour when there is already a backup detected in the directory, it will restore to the backup, recreate the backup, and then make the change again (wasteful logic, but a first draft)
