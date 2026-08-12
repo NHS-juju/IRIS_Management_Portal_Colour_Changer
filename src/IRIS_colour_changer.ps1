@@ -111,7 +111,7 @@ Function Set-HeaderColour($cspBrokerPath) {
     $new_script_path = Join-Path -Path $csp_broker_path -ChildPath "zCustom_env_colours.js"
 
     # add the new script content to the new script file
-    $new_script_content = "// This script will change the header of the instance of Iris installed on this machine" + "`n" + "document.getElementsByClassName(""portalTitle"")[0].style.background = "" " + $Colour + " "";"
+    $new_script_content = "// This script will change the header of the instance of IRIS installed on this machine" + "`n" + "document.getElementsByClassName(""portalTitle"")[0].style.background = "" " + $Colour + " "";"
 
     try {
         Set-Content -Path $new_script_path -Value $new_script_content -Force
@@ -195,7 +195,7 @@ function Set-Action {
 # ask user to provide path to csp/broker folder location so we can locate ZEN_Component__core.js
 $csp_broker_path = Read-Host "Please provide the path to the csp/broker folder: "
 
-#  prompt the user to see if they want to either change the header colour of the instance of Iris installed on this machine or to restore the original ZEN_Component__core.js file from the backup created by this script.
+#  prompt the user to see if they want to either change the header colour of the instance of IRIS installed on this machine or to restore the original ZEN_Component__core.js file from the backup created by this script.
 $action = Set-Action
 
 If ($action -eq "Change Header Colour") {
