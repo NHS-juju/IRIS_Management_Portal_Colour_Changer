@@ -12,7 +12,7 @@ The script will:
 
 ## How?
 
-The script attempts to modify the file `ZEN_Component__core.js` in the installation location of IRIS on the Windows server the script is ran on to then point it at a second javascript file it creates which will run a single line of code to overwrite the default colour of the header bar
+The script attempts to modify the file `ZEN_Component__core.js` in the installation location of IRIS on the Windows server the script is ran on to then point it at a second JavaScript file it creates which will overwrite the default colour of the header bar as well as setting the background of the existing server flag icon to have a white background to contrast against the colour chosen when running this script.
 
 ## Why
 
@@ -20,8 +20,8 @@ Although there are options available to differentiate between environments using
 
 ## Requirements
 
-- access to the server IRIS is running on
-- write access to the installation location of IRIS
+- Access to the server IRIS is running on
+- Write access to the installation location of IRIS
 - No fear
 
 ## Setup
@@ -33,5 +33,7 @@ Although there are options available to differentiate between environments using
 ## Notes
 
 The script is based off of unsupported changes being made by various users (for example, [in the comments here](https://community.intersystems.com/post/system-mode-banner)). This script simply attempts to automate the steps other users are following, including taking a backup of the files being changed. As the time of writing, the newer releases of IRIS are undergoing a UI change, so this script could stop working, or may even stop being useful if the new UI includes features that replicate the same behaviour being sought by some users.
+
+This script does not attempt to make changes for the new UI being developed by InterSystems, and will remain this way for the time being. Instead, it is best that the idea [DPI-I-1006](https://ideas.intersystems.com/ideas/DPI-I-1006) is voted on in the Ideas Portal.
 
 It is imperative that before running this script that you understand the changes being made and any risks to the actions within the script. You are ultimately responsible for running this within your environment, assume all responsibility for your own actions, and only you can stop forest fires.
