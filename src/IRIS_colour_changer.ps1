@@ -1,5 +1,5 @@
 function Restore-OriginalFile($cspBrokerPath) {
-    # Ask user to provide path to csp/broker folder location so we can locate ZEN_Component__core.js
+    # Ask user to provide path to csp\broker folder location so we can locate ZEN_Component__core.js
     $csp_broker_path = $cspBrokerPath
 	Write-Host $csp_broker_path	
 
@@ -82,7 +82,7 @@ Function Set-HeaderColour($cspBrokerPath) {
     }
     Write-Host "ZEN_Component__core.js found at: $zen_component_path"
 
-    # if the backup file already exists, we will run the script to restore the original file and then continue with the rest of the script, passing in the path to the csp/broker folder
+    # if the backup file already exists, we will run the script to restore the original file and then continue with the rest of the script, passing in the path to the csp\broker folder
 
     $backup_path = Join-Path -Path $csp_broker_path -ChildPath "ZEN_Component__core_backup.js"
     if (Test-Path -Path $backup_path) {
@@ -134,7 +134,7 @@ Function Set-HeaderColour($cspBrokerPath) {
         $line2 = "newScript.src = 'zCustom_env_colours.js';"
         $line3 = "document.body.appendChild(newScript);"
 
-        $modified_content = "`n" + $line1 + "`n" + $line2 + "`n" + $line3 + "`n" + $content
+        $modified_content = $line1 + "`n" + $line2 + "`n" + $line3 + "`n" + $content
 
         # Write the modified content back to the original file
         Set-Content -Path $zen_component_path -Value $modified_content -Force
@@ -192,8 +192,8 @@ function Set-Action {
 }
 
 
-# ask user to provide path to csp/broker folder location so we can locate ZEN_Component__core.js
-$csp_broker_path = Read-Host "Please provide the path to the csp/broker folder: "
+# ask user to provide path to csp\broker folder location so we can locate ZEN_Component__core.js
+$csp_broker_path = Read-Host "Please provide the path to the csp\broker folder: "
 
 #  prompt the user to see if they want to either change the header colour of the instance of IRIS installed on this machine or to restore the original ZEN_Component__core.js file from the backup created by this script.
 $action = Set-Action
@@ -210,4 +210,4 @@ else {
     Write-Host "Invalid choice. Exiting script."
 }
 pause "Press any key to exit the script."
-exit 1
+exit 0
