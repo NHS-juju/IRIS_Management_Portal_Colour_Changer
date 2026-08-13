@@ -14,7 +14,7 @@ The script will:
 
 The script attempts to modify the file `ZEN_Component__core.js` in the installation location of IRIS on the Windows server the script is ran on to then point it at a second JavaScript file it creates which will overwrite the default colour of the header bar as well as setting the background of the existing server flag icon to have a white background to contrast against the colour chosen when running this script.
 
-## Why
+## Why?
 
 Although there are options available to differentiate between environments using configuration within the application, some people prefer a much less subtle visual reminder of the environment.
 
